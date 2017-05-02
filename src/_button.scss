@@ -1,0 +1,165 @@
+@import 'vars';
+@import 'fonts';
+@import 'mixins';
+
+// First, the mixins.
+
+
+// Button options, primary or white.
+// .mod-btn-primary          - Primary
+// .mod-btn-white            - White
+.button-options {
+  .mod-btn-primary,
+  .mod-btn-white {
+    margin-top: 0;
+
+    &:not(:last-of-type):not(.full-width):not(.btn-short) {
+      margin-right: 10px;
+    }
+
+    &.btn-short:not(:last-of-type):not(.full-width) {
+      margin-right: 5px;
+    }
+
+    &:not(:last-child):not(.btn-short) {
+      margin-bottom: 15px;
+    }
+
+    &.btn-short:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+    // only child
+    &:first-child:last-child {
+      margin-top: 5px;
+    }
+  }
+}
+
+@mixin btn-pill-primary($color) {
+  @include font-primary-semibold;
+  @include linear-gradient($color 0%, $color 50%, darken($color, 5%) 50%, darken($color, 5%) 100%);
+  color: $color-white;
+	border: 0;
+	border-radius: 40px;
+  box-shadow: 0 2px 4px 0 $color-button-shadow;
+	font-size: 16px;
+  outline: none;
+	padding: 15px 25px;
+  position: relative;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    @include linear-gradient(darken($color, 5%) 0%, darken($color, 5%) 50%, darken($color, 10%) 0%, darken($color, 10%) 0%);
+  }
+  &:active:not(:disabled) {
+    @include linear-gradient(darken($color, 10%) 0%, darken($color, 10%) 50%, darken($color, 5%) 50%, darken($color, 5%) 100%);
+  }
+}
+
+@include set-trade-color('.mod-btn-white:hover,.mod-btn-white:focus');
+@include set-trade-border-color('.mod-btn-white:hover,.mod-btn-white:focus');
+.mod-btn-white {
+  @include font-primary-regular;
+  @include linear-gradient($color-white 0%, $color-white 50%, $color-white 50%, $color-white 100%);
+  color: $color-button-white-text;
+	border: 2px solid $color-button-white-border;
+	border-radius: 40px;
+  box-shadow: none;
+	font-size: 16px;
+  outline: none;
+  position: relative;
+
+  &:not(.btn-short) {
+    padding: 15px 25px;
+    min-width: 110px;
+  }
+
+  &.btn-short {
+    padding: 7px 20px;
+  }
+}
+
+@mixin btn-text($color) {
+  @include font-primary-regular;
+  color: $color;
+	background-color: transparent;
+	border: 0;
+	font-size: 16px;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    color: darken($color, 15%);
+  }
+  &:active:not(:disabled) {
+    color: darken($color, 25%);
+  }
+}
+
+// trade-color buttons
+
+// A primary button, with solar style.
+// .trade-solar          - Button has solar style.
+.trade-solar {
+	.mod-btn-primary {
+  	@include btn-pill-primary($color-solar-primary);
+	}
+
+  .mod-btn-text {
+  	@include btn-text($color-solar-primary);
+	}
+}
+
+// A primary button, with windows style.
+// .trade-windows          - Button has windows style.
+.trade-windows {
+	.mod-btn-primary {
+  	@include btn-pill-primary($color-windows-primary);
+	}
+
+  .mod-btn-text {
+  	@include btn-text($color-windows-primary);
+	}
+}
+
+// A primary button, with hvac style.
+// .trade-hvac          - Button has hvac style.
+.trade-hvac {
+	.mod-btn-primary {
+  	@include btn-pill-primary($color-hvac-primary);
+	}
+
+  .mod-btn-text {
+  	@include btn-text($color-hvac-primary);
+	}
+}
+
+// A primary button, with roof style.
+// .trade-roof          - Button has roof style.
+.trade-roof {
+	.mod-btn-primary {
+  	@include btn-pill-primary($color-roof-primary);
+	}
+
+  .mod-btn-text {
+  	@include btn-text($color-roof-primary);
+	}
+}
+
+// A primary button.
+// .faded-when-disabled:disabled          - Button is faded when disabled.
+.mod-btn-primary {
+  &.faded-when-disabled:disabled {
+    opacity: .5;
+		pointer-events: none;
+  }
+}
+
+// A text button, without background or border.
+// :disabled          - Dims the button to indicate it cannot be used.
+.mod-btn-text {
+  &:disabled {
+    color: $color-button-text-disabled;
+    pointer-events: none;
+  }
+}

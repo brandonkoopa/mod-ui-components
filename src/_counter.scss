@@ -1,0 +1,92 @@
+@import 'vars';
+@import 'fonts';
+@import 'mixins';
+
+.mod-counter {
+  user-select: none;
+}
+
+@include set-trade-color('.mod-counter-label');
+.mod-counter-label {
+  @include font-primary-light;
+  display: inline-block;
+  font-size: 42px;
+  height: 34px;
+  line-height: 20px;
+  margin: 0 15px;
+  vertical-align: middle;
+  width: 85px;
+}
+
+.mod-counter-add,
+.mod-counter-subtract {
+  @include font-primary-light;
+  background: transparent;
+  border: 2px solid $color-input-border-rgba;
+  border-radius: 17px;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 32px;
+  height: 34px;
+  line-height: 25px;
+  position: relative;
+  transition: border-color .1s ease-out;
+  width: 34px;
+  -webkit-appearance: none;
+
+  &::before,
+  &::after {
+	  background: $color-input-border-rgba;
+	  content: '';
+	  display: block;
+	  left: 50%;
+	  position: absolute;
+	  top: 50%;
+	  transform: translate(-50%, -50%);
+  }
+
+  &::before {
+	  height: 2px;
+	  width: 14px;
+  }
+
+  &:hover,
+  &:focus {
+    @include linear-gradient($color-white 0%, $color-white 50%, darken($color-white, 10%) 50%, darken($color-white, 10%) 100%);
+  }
+
+  &:active {
+    @include linear-gradient(darken($color-white, 10%) 0%, darken($color-white, 10%) 50%, $color-white 50%, $color-white 100%);
+
+    &:focus {
+	    background: transparent;
+    }
+  }
+}
+
+.mod-counter-subtract {
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+.mod-counter-add {
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &::after {
+	  height: 14px;
+	  width: 2px;
+  }
+}
+
+@include set-trade-color('.mod-counter-add:hover, .mod-counter-add:focus');
+@include set-trade-color('.mod-counter-subtract:hover, .mod-counter-subtract:focus');
+@include set-trade-border-color('.mod-counter-add:hover, .mod-counter-add:focus');
+@include set-trade-border-color('.mod-counter-subtract:hover, .mod-counter-subtract:focus');
+@include set-trade-background-color('.mod-counter-add:hover::after, .mod-counter-add:focus::after');
+@include set-trade-background-color('.mod-counter-add:hover::before, .mod-counter-add:focus::before');
+@include set-trade-background-color('.mod-counter-subtract:hover::after, .mod-counter-subtract:focus::after');
+@include set-trade-background-color('.mod-counter-subtract:hover::before, .mod-counter-subtract:focus::before');

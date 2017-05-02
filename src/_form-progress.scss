@@ -1,0 +1,107 @@
+@import 'vars';
+@import 'fonts';
+
+.mod-form-progress {
+	background-color: $color-mod-form-progress-bg;
+	height: 10px;
+	width: 100%;
+
+	@for $i from 0 through 100 {
+		&[data-percent="#{$i}"] {
+			.mod-form-progress-fill {
+				$percentage: $i*1%;
+				width: $percentage;
+			}
+		}
+	}
+
+	&-fill {
+		height: 10px;
+		position: relative;
+		transition: width .25s ease-out;
+	}
+
+	// Progress text
+
+	&-fill::after {
+		@include font-primary-regular;
+		content: 'Progress';
+		display: block;
+		font-size: 12px;
+    margin-right: -25px;
+		opacity: 0;
+		padding-top: 16px;
+		text-align: right;
+	}
+
+	&-fill::before {
+		background-repeat: no-repeat;
+		content: '';
+		height: 6px;
+		opacity: 0;
+		position: absolute;
+		right: -5px;
+    top: 13px;
+		width: 11px;
+	}
+
+	// show Progress text is percentage is between 10 and 90
+	@for $i from 10 through 90 {
+		&[data-percent="#{$i}"] {
+			.mod-form-progress-fill::after,
+			.mod-form-progress-fill::before {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.trade-hvac {
+	.mod-form-progress {
+		&-fill::after {
+			color: $color-hvac-primary;
+		}
+
+		&-fill::before {
+			background-image: url('../img/caret-up-hvac.svg');
+		}
+	}
+}
+
+.trade-roof {
+	.mod-form-progress {
+		&-fill::after {
+			color: $color-roof-primary;
+		}
+
+		&-fill::before {
+			background-image: url('../img/caret-up-roof.svg');
+		}
+	}
+}
+
+.trade-solar {
+	.mod-form-progress {
+		&-fill::after {
+			color: $color-solar-primary;
+		}
+
+		&-fill::before {
+			background-image: url('../img/caret-up-solar.svg');
+		}
+	}
+}
+
+.trade-windows {
+	.mod-form-progress {
+		&-fill::after {
+			color: $color-windows-primary;
+		}
+
+		&-fill::before {
+			background-image: url('../img/caret-up-windows.svg');
+		}
+	}
+}
+
+@include set-trade-background-color('.mod-form-progress-fill');

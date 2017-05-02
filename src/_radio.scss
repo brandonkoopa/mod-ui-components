@@ -1,0 +1,85 @@
+@import 'vars';
+@import 'fonts';
+
+@include set-trade-background-color('.mod-radio-indicator:after');
+
+.mod-radio-group {
+  text-align: center;
+}
+
+.mod-radio {
+  @include font-primary-light;
+	cursor: pointer;
+  display: inline-block;;
+  margin-bottom: 0;
+	padding-left: 30px;
+  position: relative;
+
+  &:not(:last-child) {
+    padding-right: 35px;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+  	z-index: -1;
+  }
+
+  .mod-radio-indicator {
+  	background-color: transparent;
+  	border: solid 2px $color-input-border;
+  	height: 24px;
+  	left: 0;
+    position: absolute;
+  	top: 0;
+  	transition: border-color .1s ease-out;
+  	width: 24px;
+  }
+
+  .mod-radio-indicator {
+    border-radius: 50%;
+  }
+
+  &:hover input ~ .mod-radio-indicator,
+  input:focus ~ .mod-radio-indicator {
+    border: solid 2px $color-radio-border-focus;
+  }
+
+  input:checked ~ .mod-radio-indicator {
+    background-color: transparent;
+  	border: solid 2px $color-input-border;
+  }
+
+  &:hover input:not([disabled]):checked ~ .mod-radio-indicator,
+  input:checked:focus ~ .mod-radio-indicator {
+    border: solid 2px $color-radio-border-focus;
+  }
+
+  input:disabled ~ .mod-radio-indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .mod-radio-indicator:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  input:checked ~ .mod-radio-indicator:after {
+    display: block;
+  }
+
+  .mod-radio-indicator:after {
+    left: 4px;
+    top: 4px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+  }
+
+  input:disabled ~ .mod-radio-indicator:after {
+    background: #7b7b7b;
+  }
+}

@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-Regular.woff2') format('woff2'),
+       url('./fonts/Montserrat-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url('./fonts/Montserrat-Light.woff2') format('woff2'),
+       url('./fonts/Montserrat-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Montserrat-Semibold';
+  src: url('./fonts/Montserrat-Semibold.woff2') format('woff2'),
+       url('./fonts/Montserrat-Semibold.woff') format('woff');
+}
+
+$font-primary-regular: 'Montserrat', sans-serif;
+$font-primary-light: 'Montserrat-Light', sans-serif;
+$font-primary-semibold: 'Montserrat-Semibold', sans-serif;
+
+@mixin font-primary-regular {
+  font-family: $font-primary-regular;
+}
+
+@mixin font-primary-regular-italic {
+  font-family: $font-primary-regular;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@mixin font-primary-light {
+  font-family: $font-primary-light;
+  font-style: normal;
+  font-weight: 100;
+}
+
+@mixin font-primary-light-italic {
+  font-family: $font-primary-light;
+  font-style: italic;
+  font-weight: 300;
+}
+
+@mixin font-primary-bold {
+  font-family: $font-primary-bold;
+}
+
+@mixin font-primary-semibold {
+  font-family: $font-primary-semibold;
+}

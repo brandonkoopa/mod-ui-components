@@ -1,0 +1,79 @@
+@mixin linear-gradient($direction, $color-stops...) {
+  // Direction has been omitted and happens to be a color-stop
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: linear-gradient($direction, $color-stops);
+}
+
+@mixin set-trade-color($class) {
+	.trade-solar {
+		#{$class} {
+	    color: $color-solar-primary;
+	  }
+	}
+	.trade-windows {
+		#{$class} {
+	    color: $color-windows-primary;
+	  }
+	}
+	.trade-hvac {
+		#{$class} {
+	    color: $color-hvac-primary;
+	  }
+	}
+	.trade-roof {
+		#{$class} {
+	    color: $color-roof-primary;
+	  }
+	}
+}
+
+@mixin set-trade-background-color($class) {
+	.trade-solar {
+		#{$class} {
+	    background-color: $color-solar-primary;
+	  }
+	}
+	.trade-windows {
+		#{$class} {
+	    background-color: $color-windows-primary;
+	  }
+	}
+	.trade-hvac {
+		#{$class} {
+	    background-color: $color-hvac-primary;
+	  }
+	}
+	.trade-roof {
+		#{$class} {
+	    background-color: $color-roof-primary;
+	  }
+	}
+}
+
+@mixin set-trade-border-color($class) {
+	.trade-solar {
+		#{$class} {
+	    border-color: $color-solar-primary;
+	  }
+	}
+	.trade-windows {
+		#{$class} {
+	    border-color: $color-windows-primary;
+	  }
+	}
+	.trade-hvac {
+		#{$class} {
+	    border-color: $color-hvac-primary;
+	  }
+	}
+	.trade-roof {
+		#{$class} {
+	    border-color: $color-roof-primary;
+	  }
+	}
+}

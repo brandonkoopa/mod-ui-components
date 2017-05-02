@@ -1,0 +1,92 @@
+@mixin keyframe($animation-name) {
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@include keyframe(spinnerAnim) {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// spinner
+// .spinner--lg         - larger spinner
+// .spinner--sm         - small spinner
+// .spinner--xs         - extra small spinner
+.spinner {
+  cursor: wait;
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 34px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  &::after {
+    animation: spinnerAnim 1.5s linear infinite;
+    border: 4px solid $color-gray7;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  &--lg {
+    height: 50px;
+    width: 50px;
+  }
+
+  &--sm {
+    height: 30px;
+    width: 30px;
+  }
+
+  &--xs {
+    height: 22px;
+    width: 22px;
+
+    &::after {
+      border-width: 2px;
+    }
+  }
+}
+
+// trade-specific colors
+
+.trade-hvac {
+  .spinner::after {
+    border-right-color: $color-hvac-primary;
+    border-top-color: $color-hvac-primary;
+  }
+}
+
+.trade-roof {
+  .spinner::after {
+    border-right-color: $color-roof-primary;
+    border-top-color: $color-roof-primary;
+  }
+}
+
+.trade-solar {
+  .spinner::after {
+    border-right-color: $color-solar-primary;
+    border-top-color: $color-solar-primary;
+  }
+}
+
+.trade-windows {
+  .spinner::after {
+    border-right-color: $color-windows-primary;
+    border-top-color: $color-windows-primary;
+  }
+}

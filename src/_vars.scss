@@ -1,0 +1,53 @@
+// ================ Color ================
+
+// common colors
+$color-white: #fff;
+$color-gray2: #535253;
+$color-gray6: #9b9b9b;
+$color-gray7: #d8d8d8;
+
+// main form
+$color-form-bg: $color-white;
+$color-form-border: rgba(213,207,196,1);
+
+// Trade Primary Colors
+$color-solar-primary: #fec14b;
+$color-windows-primary: #6eb7c2;
+$color-hvac-primary: #a0bc57;
+$color-roof-primary: #a7a5c6;
+
+// title
+$color-step-title: #545253;
+$color-disclaimer: #757375;
+// body
+$color-body-text: rgba(0, 0, 0, .4);
+// input
+$color-input-text: #545253;
+$color-label-warning: #545253;
+$color-placeholder-text: #9B9B9B;
+// buttons
+$color-button-white-text: #9B9B9B;
+$color-button-white-border: rgba(0, 0, 0, .1);
+$color-button-text-disabled: rgba(0, 0, 0, .2);
+
+$color-invalid: #D0021B;
+
+// footer
+$color-footer-banner-bg: #f6f5f1;
+$color-footer-banner-shaddow: rgba(0, 0, 0, .1);
+
+// ================ Component-specific ================
+
+// button
+$color-button-shadow: rgba(0, 0, 0, .1);
+
+// form progress
+$color-mod-form-progress-bg: #f6f5f1;
+
+// input
+$color-input-border-rgba: #e6e6e6;
+$color-input-border: rgba(0, 0, 0, .1);
+$color-input-shadow: rgba(0, 0, 0, .1);
+
+// radio button
+$color-radio-border-focus: #9b9b9b;
