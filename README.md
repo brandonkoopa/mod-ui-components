@@ -1,7 +1,6 @@
 mod-ui-components
 ========
-UI component library and style guide by Modernize.
- [Modernize.com](https://www.modernize.com)
+UI component library and style guide.
 
 
 ## Install
